@@ -56,9 +56,9 @@ mingw: $(SRC)
 	$(SILENT) rm -rf ./build
 	$(SILENT) rm -rf ./obj
 	mkdir -p build/bootstrap
-	$(CC) -o build/bootstrap/premake_bootstrap -DPREMAKE_NO_BUILTIN_SCRIPTS -I"$(LUA_DIR)" -I"$(LUASHIM_DIR)" $? -lole32
+	$(CC) -o build/bootstrap/premake_bootstrap -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_WARNINGS -DPREMAKE_NO_BUILTIN_SCRIPTS -I"$(LUA_DIR)" -I"$(LUASHIM_DIR)" $? -lole32 -ladvapi32
 	./build/bootstrap/premake_bootstrap embed
-	./build/bootstrap/premake_bootstrap --os=windows --to=build/bootstrap gmake2
+	./build/bootstrap/premake_bootstrap --os=windows --cc=$(CC) --to=build/bootstrap gmake2
 	$(MAKE) -C build/bootstrap config=$(CONFIG)_$(PLATFORM)
 
 macosx: osx

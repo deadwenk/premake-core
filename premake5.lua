@@ -99,7 +99,7 @@
 		configurations { "Release", "Debug" }
 		location ( _OPTIONS["to"] )
 
-		flags { "StaticRuntime", "MultiProcessorCompile" }
+		flags { "MultiProcessorCompile" }
 		warnings "Extra"
 
 		if not _OPTIONS["no-zlib"] then
@@ -122,7 +122,7 @@
 			optimize    "Full"
 			flags       { "NoBufferSecurityCheck", "NoRuntimeChecks" }
 
-		filter "action:vs*"
+		filter "action:vs* or system:windows"
 			defines     { "_CRT_SECURE_NO_DEPRECATE", "_CRT_SECURE_NO_WARNINGS", "_CRT_NONSTDC_NO_WARNINGS" }
 
 		filter { "system:windows", "configurations:Release" }
@@ -168,7 +168,7 @@
 			targetdir   "bin/release"
 
 		filter "system:windows"
-			links       { "ole32", "ws2_32", "advapi32" }
+			links       { "ole32", "ws2_32", "advapi32", "crypt32" }
 
 		filter "system:linux or bsd or hurd"
 			defines     { "LUA_USE_POSIX", "LUA_USE_DLOPEN" }

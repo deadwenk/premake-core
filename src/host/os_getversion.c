@@ -95,7 +95,7 @@ int getversion(struct OsVersionInfo* info)
 		RegCloseKey(key);
 		if (type == REG_SZ)
 		{
-			info->description = strdup(value);
+			info->description = _strdup(value);
 			info->isalloc = 1;
 		}
 	}

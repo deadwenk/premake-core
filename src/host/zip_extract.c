@@ -13,6 +13,7 @@
 #ifdef WIN32
 #include <direct.h>
 #include <io.h>
+#define chmod	_chmod
 #endif
 
 #include <stdio.h>

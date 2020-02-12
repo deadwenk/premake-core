@@ -2,7 +2,6 @@ project "luashim-lib"
 	language    "C"
 	kind        "StaticLib"
 	warnings    "extra"
-	pic         "on"
 
 	includedirs { "../lua/src" }
 

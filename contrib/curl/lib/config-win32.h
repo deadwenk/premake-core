@@ -247,7 +247,7 @@
 /* #define HAVE_STRCASECMP 1 */
 
 /* Define if you have the strdup function. */
-#define HAVE_STRDUP 1
+/* #define HAVE_STRDUP 1 */
 
 /* Define if you have the strftime function. */
 #define HAVE_STRFTIME 1

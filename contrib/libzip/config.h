@@ -18,7 +18,7 @@
 /* #undef HAVE_MKSTEMP */
 /* #undef HAVE_SNPRINTF */
 /* #undef HAVE_STRCASECMP */
-#define HAVE_STRDUP
+// #define HAVE_STRDUP
 /* #undef HAVE_STRUCT_TM_TM_ZONE */
 #ifdef _WIN32
 #define HAVE_MOVEFILEEXA

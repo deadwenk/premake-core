@@ -201,13 +201,13 @@
 			x86_64 = "-m64",
 		},
 		flags = {
-			LinkTimeOptimization = "-flto",
+			LinkTimeOptimization = "-fuse-ld=lld -flto",
 		},
 		kind = {
 			SharedLib = function(cfg)
 				local r = { clang.getsharedlibarg(cfg) }
-				if cfg.system == "windows" and not cfg.flags.NoImportLib then
-					table.insert(r, '-Wl,--out-implib="' .. cfg.linktarget.relpath .. '"')
+				if cfg.system ==  p.WINDOWS and not cfg.flags.NoImportLib then
+					table.insert(r, '-Wl,--out-implib=' .. p.quoted(cfg.linktarget.relpath))
 				elseif cfg.system == p.LINUX then
 					table.insert(r, '-Wl,-soname=' .. p.quoted(cfg.linktarget.name))
 				elseif table.contains(os.getSystemTags(cfg.system), "darwin") then
